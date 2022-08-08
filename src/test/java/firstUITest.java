@@ -15,7 +15,7 @@ public class firstUITest {
         driver.get("http://www.i.ua/");
         driver.findElement(By.name("login")).sendKeys("aqa_tests");
         driver.findElement(By.name("pass")).sendKeys("Asd123op");
-        driver.findElement(By.xpath("//SELECT[@name='domn']/../../../..//INPUT[@type='submit']")).click();
+        driver.findElement(By.xpath("//input[@title='Вхід на пошту']")).click();
         driver.quit();
     }
 
@@ -28,7 +28,7 @@ public class firstUITest {
         driver.get("http://www.i.ua/");
         driver.findElement(By.name("login")).sendKeys("aqa_tests");
         driver.findElement(By.name("pass")).sendKeys("Asd123op");
-        driver.findElement(By.xpath("//SELECT[@name='domn']/../../../..//INPUT[@type='submit']")).click();
+        driver.findElement(By.xpath("//input[@title='Вхід на пошту']")).click();
         driver.quit();
     }
 }
