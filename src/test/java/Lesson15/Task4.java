@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -12,12 +14,21 @@ import java.util.List;
 
 public class Task4 {
 
+    public WebDriver driver;
+    public String baseUrl = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
+
+    @BeforeTest
+
+    public void launchBrowser() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.get(baseUrl);
+
+    }
+
     @Test
 
     public void removeAccounts() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.xpath("//button[text()='Bank Manager Login']")).click();
         driver.findElement(By.xpath("//button[normalize-space()='Customers']")).click();
@@ -27,7 +38,10 @@ public class Task4 {
             driver.findElement(By.xpath("//button[normalize-space()='Delete']")).click();
         }
 
-        // driver.quit();
     }
 
+    @AfterTest
+    public void terminateBrowser() {
+        driver.quit();
+    }
 }
