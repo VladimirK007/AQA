@@ -43,7 +43,7 @@ public class TaskA {
 
         js.executeScript("window.scrollBy(0,250)", "");
         addNewRecordBtn = wait.until(ExpectedConditions.
-                elementToBeClickable(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/button")));
+                elementToBeClickable(By.xpath("//button[contains(.,\"Add To Your Collection\")]")));
 
         addNewRecordBtn.click();
 
@@ -52,7 +52,7 @@ public class TaskA {
         Assert.assertTrue(alert.getText().contains("Book"));
         alert.accept();
 
-        WebElement backToBookStore = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/div[2]/div[9]/div[1]/button")));
+        WebElement backToBookStore = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(.,\"Back To Book Store\")]")));
 
         backToBookStore.click();
 
@@ -64,7 +64,7 @@ public class TaskA {
 
         js.executeScript("window.scrollBy(0,250)", "");
         addNewRecordBtn = wait.until(ExpectedConditions.
-                elementToBeClickable(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/button")));
+                elementToBeClickable(By.xpath("//button[contains(.,\"Add To Your Collection\")]")));
 
         addNewRecordBtn.click();
 
