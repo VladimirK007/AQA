@@ -3,7 +3,6 @@ package Lesson17;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -27,6 +26,8 @@ public class NewWindow {
 
     public void openNewWindow() {
         driver.findElement(By.xpath("//button[@id='windowButton']")).click();
+        for(String newWindowHandle : driver.getWindowHandles()){
+            driver.switchTo().window(newWindowHandle);}
 
     }
 
