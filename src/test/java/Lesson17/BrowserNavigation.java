@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class BrowserNavigation {
 
@@ -31,12 +32,24 @@ public class BrowserNavigation {
 
     public void browserNavigate() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        WebElement registrationButton;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebElement joinButton;
 
-        registrationButton = wait.until(ExpectedConditions.
+        joinButton = wait.until(ExpectedConditions.
                 elementToBeClickable(By.xpath("//img[@alt='Selenium Online Training']")));
+        joinButton.click();
+
+        ArrayList<String> wid = new ArrayList<String>(driver.getWindowHandles());
+        //switch to active tab
+        driver.switchTo().window(wid.get(1));
+        //switch to parent
+        //driver.switchTo().window(wid.get(0));
+
+        WebElement registrationButton;
+        registrationButton = wait.until(ExpectedConditions.
+                elementToBeClickable(By.xpath("//a[@class='btn btn-primary-shadow btn-block']")));
         registrationButton.click();
+
 
         driver.navigate().back();
         driver.navigate().forward();

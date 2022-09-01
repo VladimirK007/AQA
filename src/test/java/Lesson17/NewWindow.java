@@ -19,7 +19,6 @@ public class NewWindow {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get(baseUrl);
-
     }
 
     @Test
@@ -28,14 +27,12 @@ public class NewWindow {
         driver.findElement(By.xpath("//button[@id='windowButton']")).click();
         for(String newWindowHandle : driver.getWindowHandles()){
             driver.switchTo().window(newWindowHandle);}
-
     }
 
     @AfterTest
     public void terminateBrowser() {
         driver.close();
         driver.quit();
-
     }
 
 }
