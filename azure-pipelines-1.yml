@@ -13,7 +13,7 @@ steps:
   env:
    VIRTUOSO_TOKEN: 'db89dfba-761f-4a77-b3e1-b32e6e7dad84'
    ID_OF_GOAL_TO_EXECUTE: '8264'
-   
+
   inputs:
     targetType: 'inline'
     script: |
@@ -21,7 +21,7 @@ steps:
       set -eou pipefail
       
       if [ $# -eq 0 ]; then
-          echo "Usage: ./execute.sh -t VIRTUOSO_TOKEN --goal_id ID_OF_GOAL_TO_EXECUTE [--app2] [--max_retry_time MAX_RETRY_TIME] [--retry_delay_time RETRY_DELAY_TIME]"
+          echo "Usage: ./execute.sh -t $VIRTUOSO_TOKEN --goal_id $ID_OF_GOAL_TO_EXECUTE [--app2] [--max_retry_time MAX_RETRY_TIME] [--retry_delay_time RETRY_DELAY_TIME]"
           exit 1
       fi
       
