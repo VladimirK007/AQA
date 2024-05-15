@@ -20,67 +20,6 @@ steps:
       #!/bin/bash
       set -eou pipefail
       
-      if [ $# -eq 0 ]; then
-          echo "Usage: ./execute.sh -t $VIRTUOSO_TOKEN --goal_id $ID_OF_GOAL_TO_EXECUTE [--app2] [--max_retry_time MAX_RETRY_TIME] [--retry_delay_time RETRY_DELAY_TIME]"
-          exit 1
-      fi
-      
-      # Check for support
-      if ! type "jq" > /dev/null; then
-        echo "jq needs to be installed. See: https://stedolan.github.io/jq/download/"
-        exit 1
-      fi
-      
-      if ! type "curl" > /dev/null; then
-        echo "curl needs to be installed."
-        exit 1
-      fi
-      
-      ENV="api"
-      UI="app"
-      MAX_RETRY_TIME=300
-      RETRY_DELAY_TIME=10
-      
-      # Set arguments
-      POSITIONAL=()
-      while [[ $# -gt 0 ]]
-      do
-      key="$1"
-      
-      case $key in
-          -t|--token)
-          VIRTUOSO_TOKEN="$2"
-          shift
-          shift
-          ;;
-          -gi|--goal_id)
-          GOAL_ID="$2"
-          shift
-          shift
-          ;;
-          --max_retry_time) # Optional param
-          MAX_RETRY_TIME=$2
-          shift
-          shift
-          ;;
-          --retry_delay_time) # Optional param
-          RETRY_DELAY_TIME=$2
-          shift
-          shift
-          ;;
-          --app2) # Optional param
-          ENV="api-app2"
-          UI="app2"
-          shift
-          ;;
-          *)
-          POSITIONAL+=("$1")
-          shift
-          ;;
-      esac
-      done
-      set -- "${POSITIONAL[@]+\"${POSITIONAL[@]}\"}"
-      
       # Check access token
       TOKEN="$VIRTUOSO_TOKEN"
       if [[ "$TOKEN" == "null" ]]; then
