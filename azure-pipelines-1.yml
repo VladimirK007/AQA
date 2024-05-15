@@ -20,7 +20,6 @@ steps:
       echo "launching the execution"
       JOB_ID=$(curl -s --header "Authorization: Bearer $TOKEN" -X POST "https://app2.virtuoso.qa/api/goals/8264/execute?envelope=false" | jq -r .id)
 
-
       if [ -z $JOB_ID ] || [ "$JOB_ID" == "null" ]; then
         echo "Failed to execute job."
         exit 1
@@ -37,7 +36,7 @@ steps:
         RETRY_TIME=0;
         # As we poll for the status of the job, we need to ensure that a single API failure would not lead to failure of this entire script
         while $ERROR; do
-          JOB=$(curl -s --fail --header "Authorization: Bearer "e3a6cf35-ff59-4882-aca5-393c9ff9f319" "https://app2.virtuoso.qa/api/executions/$JOB_ID/status?envelope=false")
+          JOB=$(curl -s --fail --header "Authorization: Bearer $TOKEN" "https://app2.virtuoso.qa/api/executions/$JOB_ID/status?envelope=false")
           if [ "$JOB" == "" ]; then
               if [ $MAX_RETRY_TIME -gt $RETRY_TIME ]; then
                 echo "Request failed. Retrying..."
