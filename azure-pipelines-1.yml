@@ -9,22 +9,17 @@ variables:
 steps:
 - task: Bash@3
   env:
-   MYFIRSTVARIABLE: 'db89dfba-761f-4a77-b3e1-b32e6e7dad84'
-   MYSECONDVARIABLE: '8264'
+   TOKEN: 'db89dfba-761f-4a77-b3e1-b32e6e7dad84'
+   GOAL_ID: '8264'
   inputs:
     targetType: 'inline'
     script: |
       #!/bin/bash
       set -eou pipefail
       
-      if [ $# -eq 0 ]; then
-          echo "Usage: ./execute.sh -t "${MYFIRSTVARIABLE}" --goal_id "${MYSECONDVARIABLE}" [--app2] [--max_retry_time MAX_RETRY_TIME] [--retry_delay_time RETRY_DELAY_TIME]"
-          exit 1
-      fi
-      
       # Launch execution
       echo "Going to execute goal $GOAL_ID"
-      JOB_ID=$(curl -s --header "Authorization: Bearer $TOKEN" -X POST "https://$ENV.virtuoso.qa/api/goals/$GOAL_ID/execute?envelope=false" | jq -r .id)
+      JOB_ID=$(curl -s --header "Authorization: Bearer $TOKEN" -X POST "https://app2.virtuoso.qa/api/goals/$GOAL_ID/execute?envelope=false" | jq -r .id)
       
       if [ -z $JOB_ID ] || [ "$JOB_ID" == "null" ]; then
         echo "Failed to execute job."
