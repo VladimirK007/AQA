@@ -28,10 +28,6 @@ steps:
         exit 1
       fi
       
-      if [ -z $GOAL_ID ] || [ "$GOAL_ID" == "null" ]; then
-        exit 1
-      fi
-      
       # Launch execution
       echo "Going to execute goal $GOAL_ID"
       JOB_ID=$(curl --header "Authorization: Bearer $TOKEN" -X POST "https://$ENV.virtuoso.qa/api/goals/$GOAL_ID/execute")
