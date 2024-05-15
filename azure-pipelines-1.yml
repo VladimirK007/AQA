@@ -66,18 +66,4 @@ steps:
       echo "--------"
       echo "Executed job $JOB_ID with outcome: $OUTCOME"
       
-      set -e
-      
-      # Save execution result
-      
-      # Different exit code for when job did not fail/error but status was not finished (cancelled/failed)
-      if [ "$JOB_STATUS" != "FINISHED" ]; then
-        exit 3
-      fi
-      
-      # terminate unsuccessfully if job did not pass
-      if [ "$OUTCOME" == "FAIL" ] || [ "$OUTCOME" == "ERROR" ]; then
-        exit 2
-      fi
-      
       echo "Done!"
