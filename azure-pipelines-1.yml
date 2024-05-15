@@ -69,8 +69,6 @@ steps:
       set -e
       
       # Save execution result
-      curl -s --header "Authorization: Bearer "e3a6cf35-ff59-4882-aca5-393c9ff9f319" "https://app2.virtuoso.qa/api/jobs/$JOB_ID/status?envelope=false" | jq -r '.' > "execution_report.json"
-      curl -s --header "Authorization: Bearer "e3a6cf35-ff59-4882-aca5-393c9ff9f319" "https://app2.virtuoso.qa/api/goals/8264?envelope=false" | jq -r '.' > "goal.json"
       
       # Different exit code for when job did not fail/error but status was not finished (cancelled/failed)
       if [ "$JOB_STATUS" != "FINISHED" ]; then
