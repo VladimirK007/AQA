@@ -35,7 +35,7 @@ steps:
       
       # Launch execution
       echo "Going to execute goal $GOAL_ID"
-      JOB_ID=$(curl -s --header "Authorization: Bearer $TOKEN" -X POST "https://$ENV.virtuoso.qa/api/goals/$GOAL_ID/execute?envelope=false" | jq -r .id)
+      JOB_ID=$(curl --header "Authorization: Bearer $TOKEN" -X POST "https://$ENV.virtuoso.qa/api/goals/$GOAL_ID/execute)
       
       echo "Launched execution job $JOB_ID"
       
