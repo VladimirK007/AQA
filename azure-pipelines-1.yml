@@ -9,8 +9,8 @@ variables:
 steps:
 - task: Bash@3
   env:
-    TOKEN: 'e3a6cf35-ff59-4882-aca5-393c9ff9f319'
-    GOAL: '8264'
+    TOKEN: e3a6cf35-ff59-4882-aca5-393c9ff9f319
+    GOAL: 8264
     ENV: 'api'
   inputs:
     targetType: 'inline'
