@@ -26,7 +26,6 @@ steps:
       if [[ "$TOKEN" == "null" ]]; then
         echo "failed to login. Please check credentials and try again"
         exit 1
-      fi
       
       # Launch execution
       echo "Going to execute goal $GOAL_ID"
