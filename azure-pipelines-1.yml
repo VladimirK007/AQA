@@ -9,8 +9,8 @@ variables:
 steps:
 - task: Bash@3
   env:
-    MYFIRSTVARIABLE: 'some text'
-    MYSECONDVARIABLE: $(aPipelineVariable)
+    MYFIRSTVARIABLE: 'db89dfba-761f-4a77-b3e1-b32e6e7dad84'
+    MYSECONDVARIABLE: '8264'
   inputs:
     targetType: 'inline'
     script: |
@@ -18,7 +18,7 @@ steps:
       set -eou pipefail
       
       if [ $# -eq 0 ]; then
-          echo "Usage: ./execute.sh -t db89dfba-761f-4a77-b3e1-b32e6e7dad84 --goal_id 8264 [--app2] [--max_retry_time MAX_RETRY_TIME] [--retry_delay_time RETRY_DELAY_TIME]"
+          echo "Usage: ./execute.sh -t $(MYFIRSTVARIABLE) --goal_id $(MYSECONDVARIABLE) [--app2] [--max_retry_time MAX_RETRY_TIME] [--retry_delay_time RETRY_DELAY_TIME]"
           exit 1
       fi
       
