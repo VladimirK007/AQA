@@ -5,11 +5,12 @@ pool: UbuntuAgentPool
 
 variables:
   buildConfiguration: 'Release'
-  MYFIRSTVARIABLE: 'db89dfba-761f-4a77-b3e1-b32e6e7dad84'
-  MYSECONDVARIABLE: '8264'
+  
 steps:
 - task: Bash@3
-  
+  env:
+   MYFIRSTVARIABLE: 'db89dfba-761f-4a77-b3e1-b32e6e7dad84'
+   MYSECONDVARIABLE: '8264'
   inputs:
     targetType: 'inline'
     script: |
