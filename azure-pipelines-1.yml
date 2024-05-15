@@ -12,7 +12,7 @@ steps:
 - task: Bash@3
   env:
    VIRTUOSO_TOKEN: 'db89dfba-761f-4a77-b3e1-b32e6e7dad84'
-   ID_OF_GOAL_TO_EXECUTE: '8264'
+   GOAL_ID: '8264'
 
   inputs:
     targetType: 'inline'
