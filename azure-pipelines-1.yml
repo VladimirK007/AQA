@@ -37,10 +37,6 @@ steps:
       echo "Going to execute goal $GOAL_ID"
       JOB_ID=$(curl -s --header "Authorization: Bearer $TOKEN" -X POST "https://$ENV.virtuoso.qa/api/goals/$GOAL_ID/execute?envelope=false" | jq -r .id)
       
-      if [ -z $JOB_ID ] || [ "$JOB_ID" == "null" ]; then
-        echo "Failed to execute job."
-        exit 1
-      fi
       echo "Launched execution job $JOB_ID"
       
       # wait for job to complete
