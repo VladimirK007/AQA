@@ -11,7 +11,7 @@ steps:
   env:
     TOKEN: 'e3a6cf35-ff59-4882-aca5-393c9ff9f319'
     GOAL: '8264'
-    ENV: app2
+    ENV: 'app2'
   inputs:
     targetType: 'inline'
     script: |
