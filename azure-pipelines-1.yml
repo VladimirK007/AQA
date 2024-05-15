@@ -18,7 +18,7 @@ steps:
       set -eou pipefail
       
       if [ $# -eq 0 ]; then
-          echo "Usage: ./execute.sh -t "${MYFIRSTVARIABLE}" --goal_id "{$MYSECONDVARIABLE}" [--app2] [--max_retry_time MAX_RETRY_TIME] [--retry_delay_time RETRY_DELAY_TIME]"
+          echo "Usage: ./execute.sh -t "${MYFIRSTVARIABLE}" --goal_id "${MYSECONDVARIABLE}" [--app2] [--max_retry_time MAX_RETRY_TIME] [--retry_delay_time RETRY_DELAY_TIME]"
           exit 1
       fi
       
