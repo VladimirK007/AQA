@@ -15,7 +15,6 @@ steps:
       set -eou pipefail
       
       # Launch execution
-      echo "Going to execute goal $GOAL_ID"
       JOB_ID=$(curl -s --header "Authorization: Bearer db89dfba-761f-4a77-b3e1-b32e6e7dad84" -X POST "https://app.virtuoso.qa/api/goals/8264/execute?envelope=false" | jq -r .id)
       
       if [ -z $JOB_ID ] || [ "$JOB_ID" == "null" ]; then
