@@ -8,9 +8,6 @@ variables:
   
 steps:
 - task: Bash@3
-  env:
-   TOKEN: 'db89dfba-761f-4a77-b3e1-b32e6e7dad84'
-   GOAL_ID: '8264'
   inputs:
     targetType: 'inline'
     script: |
