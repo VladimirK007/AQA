@@ -16,9 +16,9 @@ steps:
       
       # Launch execution
       echo "launching the execution"
-      JOB_ID=$(curl -s --header "Authorization: Bearer db89dfba-761f-4a77-b3e1-b32e6e7dad84" -X POST "https://app2.virtuoso.qa/api/goals/8264/execute?envelope=false" | jq -r .id)
+      JOB_ID=$(curl -s --header "Authorization: Bearer e3a6cf35-ff59-4882-aca5-393c9ff9f319" -X POST "https://app2.virtuoso.qa/api/goals/8264/execute?envelope=false" | jq -r .id)
       echo "after job_id"
-      
+
       if [ -z $JOB_ID ] || [ "$JOB_ID" == "null" ]; then
         echo "Failed to execute job."
         exit 1
