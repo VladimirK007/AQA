@@ -8,6 +8,9 @@ variables:
 
 steps:
 - task: Bash@3
+  env:
+    MYFIRSTVARIABLE: 'some text'
+    MYSECONDVARIABLE: $(aPipelineVariable)
   inputs:
     targetType: 'inline'
     script: |
