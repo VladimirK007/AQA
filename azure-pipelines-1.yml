@@ -30,3 +30,6 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/testim-tests-report.xml'
+- task: NodeTool@0
+  inputs:
+    versionSource: 'fromFile'
