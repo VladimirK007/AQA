@@ -9,7 +9,7 @@ variables:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: 'lts'
+    versionSpec: 20
     # You can also change 'lts' to any supported LTS Node.js version.
   displayName: 'Install Node.js'
 
